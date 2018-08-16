@@ -1,6 +1,9 @@
 from django.urls import path
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
+from django.views.decorators.csrf import csrf_exempt
+from graphene_django.views import GraphQLView
+
 from . import views
 
 urlpatterns = [
@@ -31,4 +34,5 @@ urlpatterns = [
     path('camp/<int:camp_id>/add_person/', views.AddPerson.as_view(), name='add_person'),
     path('coordinator_home/', views.coordinator_home, name='coordinator_home'),
     path('find_people/', views.find_people, name='find_people'),
+    path(r'graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]

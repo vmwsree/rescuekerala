@@ -138,7 +138,7 @@ class Volunteer(models.Model):
 class NGO(models.Model):
     district = models.CharField(
         max_length = 15,
-        choices = districts,
+        choices = districts,q
     )
     organisation = models.CharField(max_length=250, verbose_name="Name of Organization (സംഘടനയുടെ പേര്)")
     organisation_type = models.CharField(max_length=250, verbose_name="Type of Organization")

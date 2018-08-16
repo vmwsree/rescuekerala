@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'django_filters',
     'raven.contrib.django.raven_compat',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -189,6 +190,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+GRAPHENE = {
+    'SCHEMA': 'floodrelief.schema.schema',  # Where your Graphene schema lives
+    'MIDDLEWARE': (
+        'graphene_django.debug.DjangoDebugMiddleware',
+    )
+}
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'floodrelief.storage.WhiteNoiseStaticFilesStorage'
 STATIC_URL = '/static/'
